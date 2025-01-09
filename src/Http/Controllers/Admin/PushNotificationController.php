@@ -67,7 +67,7 @@ class PushNotificationController extends Controller
 
         session()->flash('success', trans('pwa::app.admin.push-notification.create-success'));
 
-        return redirect()->route('admin.pwa.pushnotification.index');
+        return redirect()->route('admin.pwa.push-notification.index');
     }
 
     /**
@@ -103,7 +103,7 @@ class PushNotificationController extends Controller
 
             session()->flash('success', trans('pwa::app.admin.notification.update-success', ['name' => trans('pwa::app.admin.layouts.push-notification')]));
 
-            return redirect()->route('admin.pwa.pushnotification.index');
+            return redirect()->route('admin.pwa.push-notification.index');
         } catch (\Exception $e) {
             session()->flash('error', trans($e->getMessage()));
 

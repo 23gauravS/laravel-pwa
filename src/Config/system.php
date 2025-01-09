@@ -4,7 +4,7 @@ return [
     [
         'key'   => 'pwa',
         'name'  => 'pwa::app.admin.system.pwa',
-        'info'  => 'pwa::app.admin.system.sytem-info',
+        'info'  => 'pwa::app.admin.system.system-info',
         'sort'  => 1,
     ], [
         'key'   => 'pwa.settings',
@@ -33,7 +33,7 @@ return [
                 'name'          => 'status',
                 'title'         => 'pwa::app.admin.system.status',
                 'type'          => 'boolean',
-            ],  [
+            ], [
                 'name'          => 'name',
                 'title'         => 'pwa::app.admin.system.name',
                 'type'          => 'text',
