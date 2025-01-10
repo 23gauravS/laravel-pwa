@@ -13,7 +13,7 @@ use Webkul\PWA\Http\Controllers\SinglePageController;
 use Webkul\PWA\Http\Controllers\StandardController;
 
 /**
- * Paypal smart buttton routes.
+ * Paypal smart button routes.
  */
 Route::group(['middleware' => ['web']], function () {
     Route::controller(SmartButtonController::class)->prefix('pwa/paypal/smart-button')->group(function () {
@@ -40,7 +40,8 @@ Route::group(['middleware' => ['locale', 'theme', 'currency']], function () {
     });
 
     Route::group(['prefix' => 'api/pwa'], function () {
-         /**
+
+        /**
          * Checkout routes.
          */
         Route::group(['middleware' => ['auth:sanctum', 'sanctum.customer']], function () {
@@ -49,7 +50,7 @@ Route::group(['middleware' => ['locale', 'theme', 'currency']], function () {
             });
         });
 
-         /**
+        /**
          * Comparison routes.
          */
         Route::controller(ComparisonController::class)->prefix('comparison')->group(function () {

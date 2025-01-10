@@ -38,7 +38,7 @@ return [
             'topic'                               => 'Thema',
 
             'module-info' => [
-                'app-version' => 'Anwendungsversion:- v2.1.x',
+                'app-version' => 'Anwendungsversion:- v2.2.2',
                 'desc'        => 'Bietet Informationen zur Anwendungsversion.',
                 'title'       => 'Modulinformationen',
             ],

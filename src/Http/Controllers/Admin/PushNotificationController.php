@@ -8,12 +8,6 @@ use Webkul\PWA\DataGrids\PushNotificationDataGrid;
 use Webkul\PWA\Http\Controllers\Controller;
 use Webkul\PWA\Repositories\PushNotificationRepository as PushNotificationRepository;
 
-/**
- * Push Notification controller
- *
- * @author Webkul Software Pvt. Ltd. <support@webkul.com>
- * @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
- */
 class PushNotificationController extends Controller
 {
     /**
@@ -126,15 +120,23 @@ class PushNotificationController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Push notification to firebase.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function pushToFirebase($id)
     {
         $topic = core()->getConfigData('pwa.settings.push-notification.topic');
+
         $serverKey = core()->getConfigData('pwa.settings.push-notification.api-key');
 
         if ($topic && $serverKey) {
             $pushNotification = $this->pushNotificationRepository->findOrFail($id);
 
             $fcmUrl = 'https://fcm.googleapis.com/v1/messages:send';
+
             $headers = [
                 'Content-Type'  => 'application/json',
                 'Authorization' => "Bearer {$serverKey}",
@@ -144,19 +146,19 @@ class PushNotificationController extends Controller
                 'message' => [
                     'notification' => [
                         'title' => $pushNotification->title,
-                        'body' => $pushNotification->description,
-                        'icon' => asset('/storage/' . $pushNotification->imageurl),
+                        'body'  => $pushNotification->description,
+                        'icon'  => asset('/storage/' . $pushNotification->imageurl),
                     ],
+
                     'data' => [
                         'click_action' => $pushNotification->targeturl,
                     ],
                 ],
             ];
 
-            $response = Http::withHeaders($headers)
-                ->post($fcmUrl, json_encode($data));
+            $response = Http::withHeaders($headers)->post($fcmUrl, json_encode($data));
 
-            if (!$response->successful()) {
+            if (! $response->successful()) {
                 session()->flash('error', trans('pwa::app.admin.push-to-firebase.invalid-credentials'));
             } else {
                 session()->flash('success', trans('pwa::app.admin.push-notification.success-notification'));

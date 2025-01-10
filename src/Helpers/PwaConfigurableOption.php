@@ -24,13 +24,6 @@ class PwaConfigurableOption extends ConfigurableOption
     protected $productImage;
 
     /**
-     * Price object
-     *
-     * @var array
-     */
-    protected $price;
-
-    /**
      * Create a new controller instance.
      *
      * @param  Webkul\Attribute\Repositories\AttributeOptionRepository  $attributeOption
@@ -41,13 +34,11 @@ class PwaConfigurableOption extends ConfigurableOption
     public function __construct(
         AttributeOption $attributeOption,
         ProductImage $productImage,
-        Price $price
+        protected Price $price,
     ) {
         $this->attributeOption = $attributeOption;
 
         $this->productImage = $productImage;
-
-        $this->price = $price;
     }
 
     /**
@@ -58,7 +49,7 @@ class PwaConfigurableOption extends ConfigurableOption
      */
     public function getConfigurationConfig($product)
     {
-        $options = $this->getOptions($product, $this->getAllowedProducts($product));
+        $options = $this->getOptions($product, $this->getAllowedVariants($product));
 
         $config = [
             'attributes'    => $this->getAttributesData($product, $options),
@@ -85,7 +76,7 @@ class PwaConfigurableOption extends ConfigurableOption
     {
         $prices = [];
 
-        foreach ($this->getAllowedProducts($product) as $variant) {
+        foreach ($this->getAllowedVariants($product) as $variant) {
             if ($variant instanceof \Webkul\Product\Models\ProductFlat) {
                 $variantId = $variant->product_id;
             } else {

@@ -38,7 +38,7 @@ return [
             'topic'                               => 'Konu',
 
             'module-info' => [
-                'app-version' => 'Uygulama Versiyonu: v2.1.x',
+                'app-version' => 'Uygulama Versiyonu: v2.2.2',
                 'desc'        => 'Uygulama versiyonu ile ilgili bilgileri sağlar.',
                 'title'       => 'Modül Bilgisi',
             ],

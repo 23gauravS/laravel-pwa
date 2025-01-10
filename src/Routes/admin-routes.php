@@ -30,6 +30,6 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin/pwa'], functi
     Route::controller(LayoutController::class)->prefix('layout')->group(function () {
         Route::get('', 'index')->name('admin.pwa.layout');
 
-        Route::post('store', 'store')->name('admin.pwa.layout.store');
+        Route::post('', 'store')->name('admin.pwa.layout.store');
     });
 });

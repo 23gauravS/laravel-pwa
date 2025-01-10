@@ -38,7 +38,7 @@ return [
             'topic'                               => '主题',
 
             'module-info' => [
-                'app-version' => '应用版本：v2.1.x',
+                'app-version' => '应用版本：v2.2.2',
                 'desc'        => '提供有关应用程序版本的信息。',
                 'title'       => '模块信息',
             ],

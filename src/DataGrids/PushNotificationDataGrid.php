@@ -24,7 +24,7 @@ class PushNotificationDataGrid extends DataGrid
                 'title',
                 'description',
                 'targeturl',
-                'imageurl'
+                'imageurl',
             );
 
         return $queryBuilder;
