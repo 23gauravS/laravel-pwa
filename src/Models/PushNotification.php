@@ -29,7 +29,7 @@ class PushNotification extends Model implements PushNotificationContract
         'title',
         'description',
         'targeturl',
-        'imageurl'
+        'imageurl',
     ];
 
     /**

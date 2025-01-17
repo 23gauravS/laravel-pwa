@@ -24,6 +24,7 @@ class SinglePageController extends Controller
         $urlPath = isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
         
         $result = new Parser(request()->header('User-Agent'));
+        
         $device = $result->device;
 
         return view('pwa::master', compact('urlPath', 'device'));

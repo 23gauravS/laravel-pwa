@@ -14,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Event::listen('bagisto.shop.layout.head', 'Webkul\PWA\Listeners\PWAListeners@redirectToPWA');
+        Event::listen('bagisto.shop.layout.head.before', 'Webkul\PWA\Listeners\PWAListeners@redirectToPWA');
 
         Event::listen('core.configuration.save.after', 'Webkul\PWA\Listeners\CoreConfig@generateManifestFile');
 

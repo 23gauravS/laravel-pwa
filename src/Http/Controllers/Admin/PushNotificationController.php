@@ -16,8 +16,7 @@ class PushNotificationController extends Controller
      * @return void
      */
     public function __construct(protected PushNotificationRepository $pushNotificationRepository)
-    {
-    }
+    {}
 
     /**
      * Display a listing of the resource.

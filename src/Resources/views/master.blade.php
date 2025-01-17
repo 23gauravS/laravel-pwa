@@ -79,7 +79,10 @@
             $acceptedCurrency = core()->getConfigData('sales.paymentmethods.paypal_smart_button.accepted_currencies');
         @endphp
 
-        @if ($clientId && $acceptedCurrency)
+        @if (
+            $clientId 
+            && $acceptedCurrency
+        )
             <script src="https://www.paypal.com/sdk/js?client-id={{ $clientId }}&currency={{ $acceptedCurrency }}" data-partner-attribution-id="Bagisto_Cart"></script>
         @endif
 
@@ -102,7 +105,6 @@
 
                             window.addEventListener('beforeinstallprompt', (e) => {
                                 deferredPrompt = e;
-                                // Update UI to notify the user they can add to home screen
                             });
                         }, function(err) {
                             console.log('ServiceWorker registration failed: ', err);
