@@ -18,7 +18,7 @@ class PushNotificationDataGrid extends DataGrid
      */
     public function prepareQueryBuilder()
     {
-        $queryBuilder = DB::table('push_notifications')
+        $queryBuilder = DB::table('pwa_push_notifications')
             ->select(
                 'id',
                 'title',
